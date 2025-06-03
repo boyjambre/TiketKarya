@@ -4,6 +4,7 @@ import HomePage from "./components/HomePage";
 import Login from "./components/auth/Login";
 import Login_Successfull from "./components/auth/Login_Successfull";
 import Register from "./components/auth/Register";
+import Question from "./components/auth/Question";
 import Register_Successfull from "./components/auth/Register_Successfull";
 import Reset_Password from "./components/auth/Reset_Password";
 import Reset_Password_Successfull from "./components/auth/Reset_Password_Successfull";
@@ -19,6 +20,7 @@ import MainContent from "./components/admin/components/MainContent";
 import AdminForumList from "./components/admin/admin_Forum_List";
 import AdminCreativeCorner from "./components/admin/admin_Creative_Corner";
 import ForumWrapper from "./components/forum";
+
 import "./App.css";
 
 function App() {
@@ -29,6 +31,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/login-success" element={<Login_Successfull />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/question" element={<Question />} />
         <Route path="/register-success" element={<Register_Successfull />} />
         <Route path="/reset-password" element={<Reset_Password />} />
         <Route

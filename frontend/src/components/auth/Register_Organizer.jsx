@@ -8,10 +8,11 @@ const Register_Organizer = () => {
     email: "",
     phone: "",
     password: "",
-    category: "",
-    document: null,
+    category: "", // Ini tidak akan disimpan ke DB dengan setup backend saat ini
+    document: null, // Ini tidak akan disimpan ke DB dengan setup backend saat ini
   });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [error, setError] = useState(""); // State baru untuk pesan error
 
   const categories = [
     "Event Management",
@@ -29,6 +30,7 @@ const Register_Organizer = () => {
       ...prev,
       [name]: value,
     }));
+    setError(""); // Bersihkan error saat input berubah
   };
 
   const handleFileChange = (e) => {
@@ -40,10 +42,44 @@ const Register_Organizer = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => { // <-- Ubah menjadi async function
     e.preventDefault();
-    // For demo purposes, any submission is successful
-    navigate("/register-organizer-success");
+    setError(""); // Bersihkan pesan error sebelumnya
+
+    // CATATAN: Untuk file upload (document) dan category,
+    // backend saat ini tidak menyimpannya ke database
+    // karena memerlukan penanganan Multer (untuk file) dan skema database tambahan.
+    // Kita hanya mengirim data yang bisa diproses oleh backend saat ini.
+
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/register-organizer', { // <-- Endpoint backend untuk register organizer
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ // Kirim hanya data yang akan diproses backend saat ini
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          password: formData.password,
+          // category dan document tidak disertakan di sini, karena backend tidak menyimpannya saat ini.
+          // Jika ingin menyimpan, Anda perlu update backend dan DB schema.
+        }),
+      });
+
+      const data = await response.json(); // Parse respons dari backend
+
+      if (response.ok) { // Jika status kode 2xx (misal 201 Created)
+        console.log("Organizer registration success:", data);
+        navigate("/register-organizer-success"); // Navigasi ke halaman sukses
+      } else { // Jika status kode 4xx atau 5xx
+        console.error("Organizer registration failed:", data.message);
+        setError(data.message || "Organizer registration failed. Please try again."); // Tampilkan pesan error dari backend
+      }
+    } catch (err) {
+      console.error("Network or server error during organizer registration:", err);
+      setError("An unexpected error occurred. Please try again."); // Tampilkan pesan error umum jika ada masalah jaringan/server
+    }
   };
 
   return (
@@ -160,6 +196,9 @@ const Register_Organizer = () => {
                     )}
                   </div>
                 </section>
+
+                {/* Tampilkan pesan error jika ada */}
+                {error && <p className="text-red-500 text-sm mt-3">{error}</p>}
 
                 {/* Terms and Submit Section */}
                 <div className="w-[490px] max-w-full mx-auto">
