@@ -21,7 +21,8 @@ import AdminCreativeCorner from "./components/admin/admin_Creative_Corner";
 import ForumWrapper from "./components/forum";
 import Navbar from './components/layout/Navbar';
 import Ticket from "./components/profile/Ticket"; 
-
+import TicketsDetail from "./components/profile/tickets/TicketsDetail";
+import ViewWorkshopDetail from "./components/profile/tickets/ViewWorkshopDetail";
 
 
 import "./App.css";
@@ -38,10 +39,10 @@ function LayoutWithNavbar() {
       {!isAdminRoute && <Navbar />}
       <Routes>
         <Route path="/" element={<HomePage />} />
-       
+        <Route path="/ticket/:id" element={<TicketsDetail />} />
+        <Route path="/workshop-detail" element={<ViewWorkshopDetail />} />
 
         <Route path="/login" element={<Login />} />
-        
         <Route path="/ticket" element={<Ticket />} />
         <Route path="/login-success" element={<Login_Successfull />} />
         <Route path="/register" element={<Register />} />

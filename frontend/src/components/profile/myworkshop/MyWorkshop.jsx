@@ -52,8 +52,8 @@ const MyWorkshop = () => {
       {tab === 'draft' && <DraftContent />}
 
       {/* Floating button */}
-      <div className="mt-6 flex justify-end">
-  <button className="bg-[#2B2B2B] text-[#FCEDDA] px-4 py-2 rounded-sm flex items-center gap-2 shadow-md">
+      <div className="mt-36 flex justify-end">
+  <button className="bg-[#2B2B2B] text-[#FCEDDA] px-4 py-2 rounded-[5px] flex items-center gap-2 shadow-md">
     Create Workshop 
     <img src="/img/plusicon.svg" alt="plus icon" className="w-5 h-5" />
   </button>

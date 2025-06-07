@@ -9,7 +9,6 @@ const ReviewForm = ({ onClose }) => {
     setSubmitted(true);
   };
 
-  // Tampilan setelah form disubmit
   if (submitted) {
     return (
       <div className="w-full min-h-screen bg-[#FAEBDD] flex flex-col justify-center items-center font-Roboto">
@@ -30,7 +29,6 @@ const ReviewForm = ({ onClose }) => {
     );
   }
 
-  // Tampilan form review
   return (
     <div className="w-full min-h-screen bg-[#FAEBDD] px-6 md:px-2 py-6 font-Roboto">
       {/* Logo */}
@@ -42,21 +40,20 @@ const ReviewForm = ({ onClose }) => {
         />
       </div>
 
-      <div className="border border-black bg-[#E9DCCB] rounded-sm max-w-2xl mx-auto flex p-2 mb-10">
-        {/* Gambar thumbnail */}
-        <div className="w-30 h-30 mr-4 shrink-0">
-          <div className="w-full h-full">
-            <img
-              src="/img/pict2.png"
-              alt="Workshop Thumbnail"
-              className="w-full h-full object-cover block rounded-none m-0 p-0"
-            />
-          </div>
+      {/* Card Paling Atas */}
+      <div className="border border-black bg-[#E9DCCB] rounded-sm max-w-2xl mx-auto flex flex-col md:flex-row p-4 mb-8">
+        {/* Gambar Full */}
+        <div className="w-full md:w-1/3 mb-4 md:mb-0 md:mr-4">
+          <img
+            src="/img/pict2.png"
+            alt="Workshop Thumbnail"
+            className="w-full h-full object-cover block rounded-none m-0 p-0 aspect-square"
+          />
         </div>
 
         {/* Judul & Rating */}
-        <div className="flex flex-col justify-center">
-          <h2 className="text-xl font-bold mb-1">
+        <div className="flex flex-col justify-center w-full">
+          <h2 className="text-xl font-bold mb-2">
             Wheel Throwing for Beginners
           </h2>
           <div className="text-5xl text-black">
@@ -76,23 +73,31 @@ const ReviewForm = ({ onClose }) => {
         </div>
       </div>
 
-      <form className="space-y-6 max-w-2xl mx-auto" onSubmit={handleSubmit}>
+      {/* Form */}
+      <form
+        className="space-y-6 max-w-2xl mx-auto"
+        onSubmit={handleSubmit}
+      >
         {/* Title */}
-        <input
-          type="text"
-          className="w-full border border-gray-400 p-3 rounded-md text-sm bg-white"
-          placeholder="Review Title"
-        />
+        <div className="border border-black bg-[#E9DCCB] rounded-sm p-4">
+          <input
+            type="text"
+            className="w-full border-none bg-transparent p-0 text-base focus:ring-0 placeholder-gray-500"
+            placeholder="Review Title"
+          />
+        </div>
 
         {/* Description */}
-        <textarea
-          className="w-full border border-gray-400 p-3 rounded-md text-sm bg-white"
-          rows="5"
-          placeholder="Review Description"
-        ></textarea>
+        <div className="border border-black bg-[#E9DCCB] rounded-sm p-4">
+          <textarea
+            className="w-full border-none bg-transparent p-0 text-base focus:ring-0 placeholder-gray-500 resize-none"
+            rows="5"
+            placeholder="Review Description"
+          ></textarea>
+        </div>
 
         {/* Upload media */}
-        <div className="border-2 border-dashed border-gray-400 p-6 rounded-md text-center text-sm bg-white cursor-pointer hover:bg-gray-50 transition">
+        <div className="border border-black bg-[#E9DCCB] rounded-sm p-6 text-center text-sm cursor-pointer hover:bg-[#e0cfb6] transition">
           <p className="font-semibold">Add Photos or Videos</p>
           <p className="text-gray-500">Click here or drag to upload</p>
         </div>

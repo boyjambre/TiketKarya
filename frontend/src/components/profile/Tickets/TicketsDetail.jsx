@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-const TicketDetail = () => {
+const TicketsDetail = () => {
   const navigate = useNavigate();
 
   return (
@@ -59,7 +59,7 @@ const TicketDetail = () => {
 
         {/* Tombol */}
       <Link to="/workshop-detail">
-  <button className="bg-[#FF570C] text-white px-3 py-1 text-[10px]">
+  <button className="bg-[#FF570C] rounded-[5px] text-white px-3 py-1 text-[10px]">
     View Workshop Details
   </button>
 </Link>
@@ -68,7 +68,7 @@ const TicketDetail = () => {
         <div className="mt-10">
          <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
     <h2 className="text-lg font-bold">Ticket (1) total: Rp. 350,000</h2>
-    <button className="bg-[#FF570C] text-white text-sm px-[90px] py-2 rounded-sm hover:bg-opacity-90 mt-2 md:mt-0">
+    <button className="bg-[#FF570C] text-white text-sm px-[77px] py-2 rounded-[5px] hover:bg-opacity-90 mt-2 md:mt-0">
       Refund Ticket
     </button>
   </div>
@@ -135,4 +135,4 @@ const TicketDetail = () => {
 
 
 
-export default TicketDetail;
+export default TicketsDetail;
