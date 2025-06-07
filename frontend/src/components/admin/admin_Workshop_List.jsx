@@ -82,7 +82,7 @@ const AdminWorkshopList = () => {
   };
 
   return (
-    <div className="p-6 bg-[#FCEDDA] min-h-screen">
+    <div className="p-6 bg-[#E7E7E8] min-h-screen">
       {/* Header Section */}
       <div className="mb-8">
         <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">

@@ -11,7 +11,7 @@ const StatCard = ({
   isNegative = false,
 }) => {
   return (
-    <div className="bg-[#FEE4C4] rounded-lg p-6 shadow-md">
+    <div className="bg-white rounded-lg p-6 shadow-md">
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-base font-medium text-gray-700">{title}</h3>

@@ -4,7 +4,7 @@ import Sidebar from "./components/Sidebar";
 
 const AdminLayout = () => {
   return (
-    <div className="min-h-screen bg-[#FCEDDA]">
+    <div className="min-h-screen bg-[#E7E7E8]">
       {/* Main Container */}
       <div className="h-full">
         <div className="flex h-full">

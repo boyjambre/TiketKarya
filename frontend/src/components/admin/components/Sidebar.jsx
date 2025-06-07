@@ -31,15 +31,14 @@ const Sidebar = () => {
   ]);
 
   return (
-    <div className="bg-[#FFDEB5] rounded-lg shadow-lg h-screen sticky top-0 flex flex-col max-w-[280px]">
-      {/* Header */}
-      <div className="bg-[#FF570C] rounded-t-lg py-6 px-4">
-        <div className="text-center">
-          <div className="text-[#FCEDDA] text-xl font-bold">TIKET KARYA</div>
-          <div className="text-[#FCEDDA] text-5xl font-normal opacity-25 leading-tight">
-            TK
-          </div>
-        </div>
+    <div className="mt-1 mb-1 bg-white rounded-lg shadow-lg h-screen sticky top-4 flex flex-col max-w-[280px]">
+      {/* HeadeR gambar logo */}
+      <div className="bg-[#2B2B2B] rounded-t-lg py-6 px-4 flex justify-center items-center">
+        <img
+          src="/logo_hitamputih.svg" 
+          alt="Logo Tiket Karya"
+          className="h-14 object-contain"
+        />
       </div>
 
       {/* Admin Profile */}
@@ -56,12 +55,10 @@ const Sidebar = () => {
         </div>
       </div>
 
-      {/* Navigation - Flex grow to push logout to bottom */}
+      {/* Navigation */}
       <nav className="flex-1 px-2 py-4 overflow-y-auto">
-        {/* Analytics */}
         <SidebarItem to="/admin">Analytics</SidebarItem>
 
-        {/* Sections */}
         {sections.map((section, index) => (
           <SidebarSection key={index} title={section.title} defaultOpen={true}>
             {section.items.map((item, itemIndex) => (
@@ -73,7 +70,7 @@ const Sidebar = () => {
         ))}
       </nav>
 
-      {/* Logout Button - Fixed at bottom */}
+      {/* Logout Button */}
       <div className="px-4 py-4 border-t border-[#FCEDDA]">
         <button
           onClick={() => navigate("/login-admin")}

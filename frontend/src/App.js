@@ -1,10 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import Login from "./components/auth/Login";
 import Login_Successfull from "./components/auth/Login_Successfull";
 import Register from "./components/auth/Register";
-import Question from "./components/auth/Question";
 import Register_Successfull from "./components/auth/Register_Successfull";
 import Reset_Password from "./components/auth/Reset_Password";
 import Reset_Password_Successfull from "./components/auth/Reset_Password_Successfull";
@@ -20,29 +19,37 @@ import MainContent from "./components/admin/components/MainContent";
 import AdminForumList from "./components/admin/admin_Forum_List";
 import AdminCreativeCorner from "./components/admin/admin_Creative_Corner";
 import ForumWrapper from "./components/forum";
+import Navbar from './components/layout/Navbar';
+import Ticket from "./components/profile/Ticket"; 
+
+
 
 import "./App.css";
 
-function App() {
+import { Navigate, Outlet } from "react-router-dom";
+
+// Komponen pembungkus untuk handle navbar visibility
+function LayoutWithNavbar() {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith("/admin");
+
   return (
-    <Router>
+    <>
+      {!isAdminRoute && <Navbar />}
       <Routes>
         <Route path="/" element={<HomePage />} />
+       
+
         <Route path="/login" element={<Login />} />
+        
+        <Route path="/ticket" element={<Ticket />} />
         <Route path="/login-success" element={<Login_Successfull />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/question" element={<Question />} />
         <Route path="/register-success" element={<Register_Successfull />} />
         <Route path="/reset-password" element={<Reset_Password />} />
-        <Route
-          path="/reset-password-success"
-          element={<Reset_Password_Successfull />}
-        />
+        <Route path="/reset-password-success" element={<Reset_Password_Successfull />} />
         <Route path="/register-organizer" element={<Register_Organizer />} />
-        <Route
-          path="/register-organizer-success"
-          element={<Register_Organizer_Successfull />}
-        />
+        <Route path="/register-organizer-success" element={<Register_Organizer_Successfull />} />
         <Route path="/search" element={<Search_HomePage />} />
         <Route path="/forum" element={<ForumWrapper />} />
         <Route path="/refund" element={<Refund />} />
@@ -55,6 +62,14 @@ function App() {
           <Route path="creative-corner" element={<AdminCreativeCorner />} />
         </Route>
       </Routes>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <LayoutWithNavbar />
     </Router>
   );
 }

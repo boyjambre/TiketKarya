@@ -60,7 +60,7 @@ const AdminForumList = () => {
   };
 
   return (
-    <div className="p-6 min-h-screen bg-[#FCEDDA]">
+    <div className="p-6 min-h-screen bg-[#E7E7E8]">
       {/* Header Section */}
       <div className="mb-8">
         <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">

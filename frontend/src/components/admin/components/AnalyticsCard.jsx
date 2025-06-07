@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const AnalyticsCard = ({ imageUrl, title, lastUpdate }) => {
   return (
-    <div className="bg-[#FEE4C4] rounded-lg p-6 shadow-md">
+    <div className="bg-white rounded-lg p-6 shadow-lg">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold">{title}</h3>
       </div>
